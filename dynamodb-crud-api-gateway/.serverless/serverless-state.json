@@ -225,7 +225,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/dynamodb-crud-api/dev/1744034069456-2025-04-07T13:54:29.456Z/dynamodb-crud-api.zip"
+                "S3Key": "serverless/dynamodb-crud-api/dev/1744044468620-2025-04-07T16:47:48.620Z/dynamodb-crud-api.zip"
               },
               "Handler": "api.getPost",
               "Runtime": "nodejs18.x",
@@ -256,7 +256,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/dynamodb-crud-api/dev/1744034069456-2025-04-07T13:54:29.456Z/dynamodb-crud-api.zip"
+                "S3Key": "serverless/dynamodb-crud-api/dev/1744044468620-2025-04-07T16:47:48.620Z/dynamodb-crud-api.zip"
               },
               "Handler": "api.createPost",
               "Runtime": "nodejs18.x",
@@ -287,7 +287,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/dynamodb-crud-api/dev/1744034069456-2025-04-07T13:54:29.456Z/dynamodb-crud-api.zip"
+                "S3Key": "serverless/dynamodb-crud-api/dev/1744044468620-2025-04-07T16:47:48.620Z/dynamodb-crud-api.zip"
               },
               "Handler": "api.updatePost",
               "Runtime": "nodejs18.x",
@@ -318,7 +318,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/dynamodb-crud-api/dev/1744034069456-2025-04-07T13:54:29.456Z/dynamodb-crud-api.zip"
+                "S3Key": "serverless/dynamodb-crud-api/dev/1744044468620-2025-04-07T16:47:48.620Z/dynamodb-crud-api.zip"
               },
               "Handler": "api.deletePost",
               "Runtime": "nodejs18.x",
@@ -349,7 +349,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/dynamodb-crud-api/dev/1744034069456-2025-04-07T13:54:29.456Z/dynamodb-crud-api.zip"
+                "S3Key": "serverless/dynamodb-crud-api/dev/1744044468620-2025-04-07T16:47:48.620Z/dynamodb-crud-api.zip"
               },
               "Handler": "api.getAllPosts",
               "Runtime": "nodejs18.x",
@@ -707,7 +707,7 @@
               "GetAllPostsLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1744034065905": {
+          "ApiGatewayDeployment1744044463851": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1688,7 +1688,7 @@
     "artifact": "D:\\AWS\\Projects\\sls\\dynamodb-crud-api-gateway\\.serverless\\dynamodb-crud-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/dynamodb-crud-api/dev/1744034069456-2025-04-07T13:54:29.456Z",
+    "artifactDirectoryName": "serverless/dynamodb-crud-api/dev/1744044468620-2025-04-07T16:47:48.620Z",
     "artifact": "dynamodb-crud-api.zip"
   }
 }
