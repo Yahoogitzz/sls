@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 14
+      nodejs: 18
     commands:
       - echo "install process started"
       - npm install
@@ -17,7 +17,7 @@ phases:
       - echo "build process finished, Updating lambda Function..."
       - echo "Updating lambda Function..."
       - echo "Deploying with stage:$stage"
-      - sls deploy --stage $stage --verbose
+      - sls deploy --stage $stage
       - echo "Deployment is DONE!!"
 artifacts:
   files:
