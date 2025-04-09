@@ -3,7 +3,7 @@ service: dynamodb-crud-api
 provider:
   name: aws
   runtime: nodejs18.x
-  stage: dev
+  stage: ${opt:stage, 'dev'}
   region: us-east-2
   environment:
     DYNAMODB_TABLE_NAME: ${self:custom.postsTableName}
@@ -17,7 +17,7 @@ plugins:
 functions:
   getPost:
     handler: api.getPost
-    name: get-post
+    name: get-post-${self:provider.stage}
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
@@ -31,7 +31,7 @@ functions:
         Resource: !GetAtt PostsTable.Arn
   createPost:
     handler: api.createPost
-    name: create-post
+    name: create-post-${self:provider.stage}
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
@@ -45,7 +45,7 @@ functions:
         Resource: !GetAtt PostsTable.Arn
   updatePost:
     handler: api.updatePost
-    name: update-post
+    name: update-post-${self:provider.stage}
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
@@ -59,7 +59,7 @@ functions:
         Resource: !GetAtt PostsTable.Arn
   deletePost:
     handler: api.deletePost
-    name: delete-post
+    name: delete-post-${self:provider.stage}
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
@@ -73,7 +73,7 @@ functions:
         Resource: !GetAtt PostsTable.Arn
   getAllPosts:
     handler: api.getAllPosts
-    name: get-all-posts
+    name: get-all-posts-${self:provider.stage}
     memorySize: 128 # mb
     timeout: 5 # seconds
     events:
