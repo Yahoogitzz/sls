@@ -4,7 +4,7 @@ provider:
   name: aws
   runtime: nodejs18.x
   stage: ${opt:stage, 'dev'}
-  region: us-east-2
+  region: us-east-1
   environment:
     DYNAMODB_TABLE_NAME: ${self:custom.postsTableName}
 
