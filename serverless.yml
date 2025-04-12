@@ -42,6 +42,20 @@ functions:
       - Effect: "Allow"
         Action:
           - "dynamodb:PutItem"
+        Resource: !GetAtt PostsTable.Arn        
+  createMultiplePosts:
+    handler: handlerapi.createMultiplePosts
+    name: create-multiple-posts-${self:provider.stage}
+    memorySize: 128
+    timeout: 5
+    events:
+      - http:
+          path: post/bulk
+          method: POST
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - "dynamodb:BatchWriteItem"
         Resource: !GetAtt PostsTable.Arn
   updatePost:
     handler: handlerapi.updatePost
