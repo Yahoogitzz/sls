@@ -312,7 +312,7 @@
 const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall } = require("@aws-sdk/util-dynamodb");
 
-const client = new DynamoDBClient({ region: "ap-south-1" });
+const client = new DynamoDBClient({ region: "us-east-1" });
 
 exports.handler = async (event) => {
     try {
@@ -345,4 +345,3 @@ exports.handler = async (event) => {
         };
       }
     };
-    
