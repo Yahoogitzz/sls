@@ -57,7 +57,7 @@ const getPost = async (event) => {
 // ✅ CREATE a new post
 const createPost = async (event) => {
   const body = safeParse(event.body);
-  if (!body || !body.postId || !body.title) {
+  if (!body || !body.postId) {
     return formatResponse(400, "Missing required post fields.");
   }
 
