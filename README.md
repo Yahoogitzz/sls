@@ -1,4 +1,4 @@
-<!-- # DynamoDB CRUD API using API Gateway and AWS Lambda | Node.js w/ AWS-SDK V3
+<!-- # This is project for creating DynamoDB with CRUD API and AWS Lambda using Node.js and AWS-SDK V3
 
 ![visitors](https://visitor-badge.glitch.me/badge?page_id=jacksonyuan-yt.dynamodb-crud-api-gateway)
 
