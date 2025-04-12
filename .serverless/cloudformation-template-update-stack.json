@@ -74,31 +74,31 @@
     "GetPostLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/get-post"
+        "LogGroupName": "/aws/lambda/get-post-dev"
       }
     },
     "CreatePostLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/create-post"
+        "LogGroupName": "/aws/lambda/create-post-dev"
       }
     },
     "UpdatePostLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/update-post"
+        "LogGroupName": "/aws/lambda/update-post-dev"
       }
     },
     "DeletePostLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/delete-post"
+        "LogGroupName": "/aws/lambda/delete-post-dev"
       }
     },
     "GetAllPostsLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/get-all-posts"
+        "LogGroupName": "/aws/lambda/get-all-posts-dev"
       }
     },
     "IamRoleLambdaExecution": {
@@ -127,7 +127,7 @@
                 "-",
                 [
                   "dynamodb-crud-api",
-                  "production",
+                  "dev",
                   "lambda"
                 ]
               ]
@@ -144,19 +144,19 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/get-post:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/get-post-dev:*"
                     },
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/create-post:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/create-post-dev:*"
                     },
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/update-post:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/update-post-dev:*"
                     },
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/delete-post:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/delete-post-dev:*"
                     },
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/get-all-posts:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/get-all-posts-dev:*"
                     }
                   ]
                 },
@@ -167,19 +167,19 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/get-post:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/get-post-dev:*:*"
                     },
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/create-post:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/create-post-dev:*:*"
                     },
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/update-post:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/update-post-dev:*:*"
                     },
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/delete-post:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/delete-post-dev:*:*"
                     },
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/get-all-posts:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/get-all-posts-dev:*:*"
                     }
                   ]
                 }
@@ -193,7 +193,7 @@
             "-",
             [
               "dynamodb-crud-api",
-              "production",
+              "dev",
               {
                 "Ref": "AWS::Region"
               },
@@ -210,11 +210,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-crud-api/production/1744155191691-2025-04-08T23:33:11.691Z/dynamodb-crud-api.zip"
+          "S3Key": "serverless/dynamodb-crud-api/dev/1744429790707-2025-04-12T03:49:50.707Z/dynamodb-crud-api.zip"
         },
-        "Handler": "api.getPost",
+        "Handler": "handlerapi.getPost",
         "Runtime": "nodejs18.x",
-        "FunctionName": "get-post",
+        "FunctionName": "get-post-dev",
         "MemorySize": 128,
         "Timeout": 5,
         "Environment": {
@@ -241,11 +241,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-crud-api/production/1744155191691-2025-04-08T23:33:11.691Z/dynamodb-crud-api.zip"
+          "S3Key": "serverless/dynamodb-crud-api/dev/1744429790707-2025-04-12T03:49:50.707Z/dynamodb-crud-api.zip"
         },
-        "Handler": "api.createPost",
+        "Handler": "handlerapi.createPost",
         "Runtime": "nodejs18.x",
-        "FunctionName": "create-post",
+        "FunctionName": "create-post-dev",
         "MemorySize": 128,
         "Timeout": 5,
         "Environment": {
@@ -272,11 +272,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-crud-api/production/1744155191691-2025-04-08T23:33:11.691Z/dynamodb-crud-api.zip"
+          "S3Key": "serverless/dynamodb-crud-api/dev/1744429790707-2025-04-12T03:49:50.707Z/dynamodb-crud-api.zip"
         },
-        "Handler": "api.updatePost",
+        "Handler": "handlerapi.updatePost",
         "Runtime": "nodejs18.x",
-        "FunctionName": "update-post",
+        "FunctionName": "update-post-dev",
         "MemorySize": 128,
         "Timeout": 5,
         "Environment": {
@@ -303,11 +303,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-crud-api/production/1744155191691-2025-04-08T23:33:11.691Z/dynamodb-crud-api.zip"
+          "S3Key": "serverless/dynamodb-crud-api/dev/1744429790707-2025-04-12T03:49:50.707Z/dynamodb-crud-api.zip"
         },
-        "Handler": "api.deletePost",
+        "Handler": "handlerapi.deletePost",
         "Runtime": "nodejs18.x",
-        "FunctionName": "delete-post",
+        "FunctionName": "delete-post-dev",
         "MemorySize": 128,
         "Timeout": 5,
         "Environment": {
@@ -334,11 +334,11 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/dynamodb-crud-api/production/1744155191691-2025-04-08T23:33:11.691Z/dynamodb-crud-api.zip"
+          "S3Key": "serverless/dynamodb-crud-api/dev/1744429790707-2025-04-12T03:49:50.707Z/dynamodb-crud-api.zip"
         },
-        "Handler": "api.getAllPosts",
+        "Handler": "handlerapi.getAllPosts",
         "Runtime": "nodejs18.x",
-        "FunctionName": "get-all-posts",
+        "FunctionName": "get-all-posts-dev",
         "MemorySize": 128,
         "Timeout": 5,
         "Environment": {
@@ -358,60 +358,60 @@
         "GetAllPostsLogGroup"
       ]
     },
-    "GetPostLambdaVersionqFqKYPehh1fyIeKXtwJN3CzxVyjoA6TtATecBhuctY": {
+    "GetPostLambdaVersionvJDLmv7HpMGwjkNy58jaRQc4e6i4z2sHnxcKBO6zaI": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetPostLambdaFunction"
         },
-        "CodeSha256": "ftVUgRfPdCCiJdR+/g04erHcVuHfYtYknCecYAq99hU="
+        "CodeSha256": "xd6bIG5I2Ib4ZhcGKJPobN6SEbI05w3WZaR+Ylx1YZw="
       }
     },
-    "CreatePostLambdaVersion7aaNtROzX7r8PF1xIN86CCKUQFUDx7fy5EjzDCkxmw": {
+    "CreatePostLambdaVersionDUn8oZKOG2IyLwRYzHKMBkoZ1PLjQQsddpV1vJpik": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreatePostLambdaFunction"
         },
-        "CodeSha256": "ftVUgRfPdCCiJdR+/g04erHcVuHfYtYknCecYAq99hU="
+        "CodeSha256": "xd6bIG5I2Ib4ZhcGKJPobN6SEbI05w3WZaR+Ylx1YZw="
       }
     },
-    "UpdatePostLambdaVersionuQ4VhdK3swcr4VDmfEILUjr0FABQhgGAsxsBhnVIAo": {
+    "UpdatePostLambdaVersionXRk1yEJzd6BPzyclZ8Py5E6z9rQMst4WN0kdDLLsOs": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "UpdatePostLambdaFunction"
         },
-        "CodeSha256": "ftVUgRfPdCCiJdR+/g04erHcVuHfYtYknCecYAq99hU="
+        "CodeSha256": "xd6bIG5I2Ib4ZhcGKJPobN6SEbI05w3WZaR+Ylx1YZw="
       }
     },
-    "DeletePostLambdaVersion7QIl7RjelWQaFeIiD6sw1vUj4QfWL6t9bN1eloptNy8": {
+    "DeletePostLambdaVersionXolhETzSsvRHei6zEJ16d6aQ2NhQF6oXHfLkwxEqs4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "DeletePostLambdaFunction"
         },
-        "CodeSha256": "ftVUgRfPdCCiJdR+/g04erHcVuHfYtYknCecYAq99hU="
+        "CodeSha256": "xd6bIG5I2Ib4ZhcGKJPobN6SEbI05w3WZaR+Ylx1YZw="
       }
     },
-    "GetAllPostsLambdaVersionKEmwHX7Sk4D5MnoFlEJQcKN0NuNS4q5S1qQOjre3rv4": {
+    "GetAllPostsLambdaVersionzlzLoWl5LWvd2fHFkiI4YuOvnXSXlnYbvPGRW7tGcc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetAllPostsLambdaFunction"
         },
-        "CodeSha256": "ftVUgRfPdCCiJdR+/g04erHcVuHfYtYknCecYAq99hU="
+        "CodeSha256": "xd6bIG5I2Ib4ZhcGKJPobN6SEbI05w3WZaR+Ylx1YZw="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "production-dynamodb-crud-api",
+        "Name": "dev-dynamodb-crud-api",
         "EndpointConfiguration": {
           "Types": [
             "EDGE"
@@ -692,13 +692,13 @@
         "GetAllPostsLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1744155187866": {
+    "ApiGatewayDeployment1744429787240": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         },
-        "StageName": "production"
+        "StageName": "dev"
       },
       "DependsOn": [
         "ApiGatewayMethodPostPostidVarGet",
@@ -919,7 +919,7 @@
                 "-",
                 [
                   "dynamodb-crud-api",
-                  "production",
+                  "dev",
                   "lambda"
                 ]
               ]
@@ -936,7 +936,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/get-post:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/get-post-dev:*:*"
                     }
                   ]
                 },
@@ -962,7 +962,7 @@
             "-",
             [
               "dynamodb-crud-api",
-              "production",
+              "dev",
               "getPost",
               {
                 "Ref": "AWS::Region"
@@ -1000,7 +1000,7 @@
                 "-",
                 [
                   "dynamodb-crud-api",
-                  "production",
+                  "dev",
                   "lambda"
                 ]
               ]
@@ -1017,7 +1017,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/create-post:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/create-post-dev:*:*"
                     }
                   ]
                 },
@@ -1043,7 +1043,7 @@
             "-",
             [
               "dynamodb-crud-api",
-              "production",
+              "dev",
               "createPost",
               {
                 "Ref": "AWS::Region"
@@ -1081,7 +1081,7 @@
                 "-",
                 [
                   "dynamodb-crud-api",
-                  "production",
+                  "dev",
                   "lambda"
                 ]
               ]
@@ -1098,7 +1098,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/update-post:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/update-post-dev:*:*"
                     }
                   ]
                 },
@@ -1124,7 +1124,7 @@
             "-",
             [
               "dynamodb-crud-api",
-              "production",
+              "dev",
               "updatePost",
               {
                 "Ref": "AWS::Region"
@@ -1162,7 +1162,7 @@
                 "-",
                 [
                   "dynamodb-crud-api",
-                  "production",
+                  "dev",
                   "lambda"
                 ]
               ]
@@ -1179,7 +1179,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/delete-post:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/delete-post-dev:*:*"
                     }
                   ]
                 },
@@ -1205,7 +1205,7 @@
             "-",
             [
               "dynamodb-crud-api",
-              "production",
+              "dev",
               "deletePost",
               {
                 "Ref": "AWS::Region"
@@ -1243,7 +1243,7 @@
                 "-",
                 [
                   "dynamodb-crud-api",
-                  "production",
+                  "dev",
                   "lambda"
                 ]
               ]
@@ -1260,7 +1260,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/get-all-posts:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/get-all-posts-dev:*:*"
                     }
                   ]
                 },
@@ -1286,7 +1286,7 @@
             "-",
             [
               "dynamodb-crud-api",
-              "production",
+              "dev",
               "getAllPosts",
               {
                 "Ref": "AWS::Region"
@@ -1315,8 +1315,8 @@
           }
         ],
         "ProvisionedThroughput": {
-          "ReadCapacityUnits": 1,
-          "WriteCapacityUnits": 1
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
         }
       }
     }
@@ -1327,52 +1327,52 @@
         "Ref": "ServerlessDeploymentBucket"
       },
       "Export": {
-        "Name": "sls-dynamodb-crud-api-production-ServerlessDeploymentBucketName"
+        "Name": "sls-dynamodb-crud-api-dev-ServerlessDeploymentBucketName"
       }
     },
     "GetPostLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetPostLambdaVersionqFqKYPehh1fyIeKXtwJN3CzxVyjoA6TtATecBhuctY"
+        "Ref": "GetPostLambdaVersionvJDLmv7HpMGwjkNy58jaRQc4e6i4z2sHnxcKBO6zaI"
       },
       "Export": {
-        "Name": "sls-dynamodb-crud-api-production-GetPostLambdaFunctionQualifiedArn"
+        "Name": "sls-dynamodb-crud-api-dev-GetPostLambdaFunctionQualifiedArn"
       }
     },
     "CreatePostLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreatePostLambdaVersion7aaNtROzX7r8PF1xIN86CCKUQFUDx7fy5EjzDCkxmw"
+        "Ref": "CreatePostLambdaVersionDUn8oZKOG2IyLwRYzHKMBkoZ1PLjQQsddpV1vJpik"
       },
       "Export": {
-        "Name": "sls-dynamodb-crud-api-production-CreatePostLambdaFunctionQualifiedArn"
+        "Name": "sls-dynamodb-crud-api-dev-CreatePostLambdaFunctionQualifiedArn"
       }
     },
     "UpdatePostLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "UpdatePostLambdaVersionuQ4VhdK3swcr4VDmfEILUjr0FABQhgGAsxsBhnVIAo"
+        "Ref": "UpdatePostLambdaVersionXRk1yEJzd6BPzyclZ8Py5E6z9rQMst4WN0kdDLLsOs"
       },
       "Export": {
-        "Name": "sls-dynamodb-crud-api-production-UpdatePostLambdaFunctionQualifiedArn"
+        "Name": "sls-dynamodb-crud-api-dev-UpdatePostLambdaFunctionQualifiedArn"
       }
     },
     "DeletePostLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "DeletePostLambdaVersion7QIl7RjelWQaFeIiD6sw1vUj4QfWL6t9bN1eloptNy8"
+        "Ref": "DeletePostLambdaVersionXolhETzSsvRHei6zEJ16d6aQ2NhQF6oXHfLkwxEqs4"
       },
       "Export": {
-        "Name": "sls-dynamodb-crud-api-production-DeletePostLambdaFunctionQualifiedArn"
+        "Name": "sls-dynamodb-crud-api-dev-DeletePostLambdaFunctionQualifiedArn"
       }
     },
     "GetAllPostsLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetAllPostsLambdaVersionKEmwHX7Sk4D5MnoFlEJQcKN0NuNS4q5S1qQOjre3rv4"
+        "Ref": "GetAllPostsLambdaVersionzlzLoWl5LWvd2fHFkiI4YuOvnXSXlnYbvPGRW7tGcc"
       },
       "Export": {
-        "Name": "sls-dynamodb-crud-api-production-GetAllPostsLambdaFunctionQualifiedArn"
+        "Name": "sls-dynamodb-crud-api-dev-GetAllPostsLambdaFunctionQualifiedArn"
       }
     },
     "ServiceEndpoint": {
@@ -1393,12 +1393,12 @@
             {
               "Ref": "AWS::URLSuffix"
             },
-            "/production"
+            "/dev"
           ]
         ]
       },
       "Export": {
-        "Name": "sls-dynamodb-crud-api-production-ServiceEndpoint"
+        "Name": "sls-dynamodb-crud-api-dev-ServiceEndpoint"
       }
     }
   }

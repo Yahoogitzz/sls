@@ -1,8 +1,5 @@
-<!-- # This is project for creating DynamoDB with CRUD API and AWS Lambda using Node.js and AWS-SDK V3
+<!-- Name: Dhaval Rathod
+This is project for creating DynamoDB with CRUD API and AWS Lambda using Node.js and AWS-SDK V3
+github link:- https://github.com/Yahoogitzz/sls
 
-![visitors](https://visitor-badge.glitch.me/badge?page_id=jacksonyuan-yt.dynamodb-crud-api-gateway)
-
-### YouTube Video Tutorial
-* [Full Tutorial](https://youtu.be/hOcbHz4T0Eg) -->
-
-readme.md file
+Note: This is readme.md file -->
