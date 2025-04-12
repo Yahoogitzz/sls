@@ -45,7 +45,7 @@ const getPost = async (event) => {
     };
 
     const { Item } = await db.send(new GetItemCommand(params));
-    return formatResponse(200, "Post retrieved.", {
+    return formatResponse(200, "getPost retrieved successfully.", {
       post: Item ? unmarshall(Item) : null,
       rawData: Item,
     });
