@@ -388,7 +388,7 @@ const createItem = async (event) => {
 
   try {
     const params = {
-      TableName: process.env.DYNAMODB_TABLE_NAME,
+      TableName: process.self.DYNAMODB_TABLE_NAME,
       Item: marshall({
         PK: body.PK,
         SK: body.SK,
@@ -415,7 +415,7 @@ const getItem = async (event) => {
 
   try {
     const params = {
-      TableName: process.env.DYNAMODB_TABLE_NAME,
+      TableName: process.self.DYNAMODB_TABLE_NAME,
       Key: marshall({ PK, SK }),
     };
 
