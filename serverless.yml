@@ -16,7 +16,7 @@ plugins:
 
 functions:
   getPost:
-    handler: api.getPost
+    handler: handlerapi.getPost
     name: get-post-${self:provider.stage}
     memorySize: 128 # mb
     timeout: 5 # seconds
@@ -30,7 +30,7 @@ functions:
           - "dynamodb:GetItem"
         Resource: !GetAtt PostsTable.Arn
   createPost:
-    handler: api.createPost
+    handler: handlerapi.createPost
     name: create-post-${self:provider.stage}
     memorySize: 128 # mb
     timeout: 5 # seconds
@@ -44,7 +44,7 @@ functions:
           - "dynamodb:PutItem"
         Resource: !GetAtt PostsTable.Arn
   updatePost:
-    handler: api.updatePost
+    handler: handlerapi.updatePost
     name: update-post-${self:provider.stage}
     memorySize: 128 # mb
     timeout: 5 # seconds
@@ -58,7 +58,7 @@ functions:
           - "dynamodb:UpdateItem"
         Resource: !GetAtt PostsTable.Arn
   deletePost:
-    handler: api.deletePost
+    handler: handlerapi.deletePost
     name: delete-post-${self:provider.stage}
     memorySize: 128 # mb
     timeout: 5 # seconds
@@ -72,7 +72,7 @@ functions:
           - "dynamodb:DeleteItem"
         Resource: !GetAtt PostsTable.Arn
   getAllPosts:
-    handler: api.getAllPosts
+    handler: handlerapi.getAllPosts
     name: get-all-posts-${self:provider.stage}
     memorySize: 128 # mb
     timeout: 5 # seconds
@@ -99,5 +99,5 @@ resources:
           - AttributeName: postId
             KeyType: HASH
         ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
