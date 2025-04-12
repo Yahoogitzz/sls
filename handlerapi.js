@@ -309,39 +309,126 @@
 //   getAllPosts,
 // };
 
-const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb");
-const { marshall } = require("@aws-sdk/util-dynamodb");
+// ====================== Hemanth code ====================
+// const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb");
+// const { marshall } = require("@aws-sdk/util-dynamodb");
 
-const client = new DynamoDBClient({ region: "us-east-1" });
+// const client = new DynamoDBClient({ region: "us-east-1" });
 
-exports.handler = async (event) => {
-    try {
-        const body = JSON.parse(event.body);
+// exports.handler = async (event) => {
+//     try {
+//         const body = JSON.parse(event.body);
 
-        const params = {
-            TableName: "EmployeeRequests",
-            Item: marshall({
-                PK: body.PK,
-                SK: body.SK,
-                name: body.name,
-                department: body.department,
-                status: body.status
-            })
-        };
+//         const params = {
+//             TableName: "EmployeeRequests",
+//             Item: marshall({
+//                 PK: body.PK,
+//                 SK: body.SK,
+//                 name: body.name,
+//                 department: body.department,
+//                 status: body.status
+//             })
+//         };
 
-        const command = new PutItemCommand(params);
-        await client.send(command);
+//         const command = new PutItemCommand(params);
+//         await client.send(command);
 
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ message: "Item saved successfully" })
-        };
+//         return {
+//             statusCode: 200,
+//             body: JSON.stringify({ message: "Item saved successfully" })
+//         };
 
-    } catch (error) {
-        console.error("Error saving item:", error);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: "Could not save item" })
-        };
-      }
+//     } catch (error) {
+//         console.error("Error saving item:", error);
+//         return {
+//             statusCode: 500,
+//             body: JSON.stringify({ error: "Could not save item" })
+//         };
+//       }
+//     };
+
+// Required AWS SDK imports
+const db = require("./db");
+const {
+  GetItemCommand,
+  PutItemCommand,
+  DeleteItemCommand,
+  ScanCommand,
+  UpdateItemCommand,
+} = require("@aws-sdk/client-dynamodb");
+const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
+
+// Helper: format success & error responses
+const formatResponse = (statusCode, message, data = {}, error = null) => {
+  return {
+    statusCode,
+    body: JSON.stringify({
+      message,
+      ...(error && { error }),
+      ...(data && { data }),
+    }),
+  };
+};
+
+// Helper: parse input safely
+const safeParse = (input) => {
+  try {
+    return JSON.parse(input);
+  } catch {
+    return null;
+  }
+};
+
+// ✅ CREATE a new item with PK and SK
+const createItem = async (event) => {
+  const body = safeParse(event.body);
+  if (!body || !body.PK || !body.SK || !body.name || !body.department || !body.status) {
+    return formatResponse(400, "Missing required fields.");
+  }
+
+  try {
+    const params = {
+      TableName: process.env.DYNAMODB_TABLE_NAME,
+      Item: marshall({
+        PK: body.PK,
+        SK: body.SK,
+        name: body.name,
+        department: body.department,
+        status: body.status,
+      }),
     };
+
+    const result = await db.send(new PutItemCommand(params));
+    return formatResponse(201, "Item created successfully.", { result });
+  } catch (err) {
+    return formatResponse(500, "Error creating item.", null, err.message);
+  }
+};
+
+// ✅ GET an item by PK and SK
+const getItem = async (event) => {
+  const { PK, SK } = event?.pathParameters || {};
+
+  if (!PK || !SK) {
+    return formatResponse(400, "Missing PK or SK in path.");
+  }
+
+  try {
+    const params = {
+      TableName: process.env.DYNAMODB_TABLE_NAME,
+      Key: marshall({ PK, SK }),
+    };
+
+    const { Item } = await db.send(new GetItemCommand(params));
+    return formatResponse(200, "Item retrieved.", {
+      item: Item ? unmarshall(Item) : null,
+    });
+  } catch (err) {
+    return formatResponse(500, "Error retrieving item.", null, err.message);
+  }
+};
+
+module.exports = {
+  createItem,
+  getItem,
+};
