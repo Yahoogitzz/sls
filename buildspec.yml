@@ -15,7 +15,6 @@ phases:
   post_build:
     commands:
       - echo "build process finished, Updating lambda Function..."
-      - echo "Updating lambda Function..."
       - echo "Deploying with stage:$stage"
       - sls deploy --stage $stage
       - echo "Deployment is DONE!!"
